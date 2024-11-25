@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for FastAPI
+name: CI/CD Pipeline for FastAPI using Actions
 
 on:
   push:
