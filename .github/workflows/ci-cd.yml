@@ -45,18 +45,18 @@ jobs:
       - name: Pull Docker Image
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/fastapi-app:latest
 
-      # Run the Docker container
-    - name: Deploy FastAPI App
-      run: |
-        if [ $(docker ps -q -f name=fastapi-container) ]; then
-          echo "Stopping existing container..."
-          docker stop fastapi-container
-        fi
+        # Run the Docker container
+      - name: Deploy FastAPI App
+        run: |
+          if [ $(docker ps -q -f name=fastapi-container) ]; then
+            echo "Stopping existing container..."
+            docker stop fastapi-container
+          fi
 
-        if [ $(docker ps -aq -f name=fastapi-container) ]; then
-          echo "Removing existing container..."
-          docker rm fastapi-container
-        fi
+          if [ $(docker ps -aq -f name=fastapi-container) ]; then
+            echo "Removing existing container..."
+            docker rm fastapi-container
+          fi
 
-        echo "Running the new container..."
-        docker run -d --name fastapi-container -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/fastapi-app:latest
+          echo "Running the new container..."
+          docker run -d --name fastapi-container -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/fastapi-app:latest
