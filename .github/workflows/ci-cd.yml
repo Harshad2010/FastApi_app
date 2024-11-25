@@ -47,7 +47,7 @@ jobs:
 
         # Run the Docker container
       - name: Deploy FastAPI App
-        run: docker stop fastapi-container
+        run: docker stop e713a4071a23da927e47294e9af96bbe492e95f4f41761ad4b8f5a72df9bfb88
         # run: |
           # if [ $(docker ps -q -f name=fastapi-container) ]; then
           #   echo "Stopping existing container..."
