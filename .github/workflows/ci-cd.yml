@@ -47,15 +47,16 @@ jobs:
 
         # Run the Docker container
       - name: Deploy FastAPI App
-        run: |
-          if [ $(docker ps -q -f name=fastapi-container) ]; then
-            echo "Stopping existing container..."
-            docker stop fastapi-container
-          fi
+        run: docker stop fastapi-container
+        # run: |
+          # if [ $(docker ps -q -f name=fastapi-container) ]; then
+          #   echo "Stopping existing container..."
+          #   docker stop fastapi-container
+          # fi
 
-          if [ $(docker ps -aq -f name=fastapi-container) ]; then
-            echo "Removing existing container..."
-            docker rm fastapi-container
+          # if [ $(docker ps -aq -f name=fastapi-container) ]; then
+          #   echo "Removing existing container..."
+          #   docker rm fastapi-container
           # fi
 
           # echo "Running the new container..."
